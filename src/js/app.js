@@ -22,6 +22,7 @@ $(() => {
     $login.slideUp(700);
     $reg.delay(700).slideDown(500);
 
+
   }
 
 
