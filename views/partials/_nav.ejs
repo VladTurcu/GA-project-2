@@ -1,0 +1,25 @@
+<nav class="main-menu navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">Began</a>
+</div>
+    <a class="navbar-item" href="/">Home</a>
+    <a class="navbar-item" href="/recipes">Recipes</a>
+    <a class="navbar-item" href="/">About</a>
+    <a class="navbar-item" href="/recipes/new">New recipe</a>
+    <a class="navbar-item" href="/blog">Blog</a>
+
+
+
+
+
+    <div class="navbar-end">
+      <% if(!locals.isAuthenticated){ %>
+    <a class="navbar-item" href="/register">Register</a>
+    <a class="navbar-item" href="/login">Login</a>
+    <% } else { %>
+    <a class="navbar-item" href="/users/<%= locals.currentUser.id %>">Hey <%= locals.currentUser.username %></a>
+    <a class="navbar-item" href="/logout">Logout</a>
+    <% }  %>
+      </div>
+
+</nav>

@@ -1,0 +1,19 @@
+
+<div class='container landing-container'>
+<div class='columns is-mobile box search-box'>
+  <div class='column is-4 is-paddingless'>
+    <form class='search-block ingredients'method="POST"action="/recipes/find">
+
+      <select class="input is-primary" multiple="multiple" required>
+        <% ingredients.forEach(ingredient => { %>
+          <option><%= ingredient %></option>
+        <% }); %>
+
+      </select>
+<button class="button is-primary search-button">Search</button>
+    </form>
+  </div>
+
+
+</div>
+</div>

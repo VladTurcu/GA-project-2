@@ -1,0 +1,92 @@
+
+
+<div class="tile">
+  <div class="tile is-parent">
+    <article class="tile is-child ">
+
+      <p class="recipe-title"><%= recipe.name %></p>
+      <div class="img-container" style="background-image: url('<%= recipe.image %>'); background-size: cover">
+        <nav class="level">
+          <div class="level-left">
+            <a class="level-item">
+              <% if(locals.isAuthenticated) { %>
+        <form method="POST" action="/recipes/<%= recipe.id %>/favorite" >
+          <button>
+              <span class="icon is-small"><i class="fa fa-heart"></i></span>
+          </button>
+        </form>
+      <% } %>
+
+            </a>
+          </div>
+        </nav>
+      </div>
+
+
+      <div class="description">
+
+<nav class="level is-mobile">
+  <div class="level-item has-text-centered  ">
+    <div>
+      <p class="heading">Comments</p>
+      <p class="title is-5"><%= recipe.comments.length %></p>
+    </div>
+  </div>
+
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Average rating</p>
+      <p class="title is-5">8</p>
+    </div>
+  </div>
+
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Favorite</p>
+      <p class="title is-5">9</p>
+    </div>
+  </div>
+
+</nav>
+
+      </div>
+
+
+      <div class="content">
+        <div class="columns">
+          <div class="column is-one-third">
+            <% recipe.ingredients.forEach(ingredient => { %>
+              <div class="columns ing-box">
+              <div class="column ">
+              <%= ingredient.name %>:
+              </div>
+              <div class="column is-one-third">
+              <span class="is-pulled-right"><%= ingredient.qty %></span>
+              </div>
+              </div>
+              <% }); %>
+            </div>
+
+            <div class="column is-pulled-right">
+              <p class="heading"><%= recipe.description %></p>
+              <%= recipe.preparation %>
+
+            </div>
+
+          </div>
+        </div>
+
+
+
+        <div class="">
+          <% if(locals.isAuthenticated && recipe.user && recipe.user.id === locals.currentUser.id){ %>
+            <form method="POST" action="/recipes/<%= recipe.id %>">
+            <input type="hidden" name="_method" value="DELETE">
+            <a class="ing" href="/recipes/<%= recipe.id %>/edit">Edit</a>
+            <button class="delete ing"></button>
+            </form>
+            <% } %>
+
+            <%- include ../partials/_recipe-com %>
+
+          </div>

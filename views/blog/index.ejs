@@ -1,0 +1,27 @@
+<div class="columns is-multiline">
+<% posts.forEach(post => { %>
+<div class="column is-one-quarter-desktop is-half-tablet">
+<div class="card">
+    <div class="card-image">
+      <figure class="image is-4by3">
+      <a href="/blog/<%= post.id %>"><img src="<%= post.image %>"></a>
+      </figure>
+    </div>
+    <div class="card-content">
+      <div class="media">
+        <div class="media-content">
+          <p class="title is-5"><a href="/blog/<%= post.id %>"><%= post.title %></a></p>
+
+          <form method="POST" action="/blog/<%= post.id %>">
+          <input type="hidden" name="_method" value="DELETE">
+          <a class="button is-primary" href="/blog/<%= post.id %>/edit">Edit</a>
+          <button class="button is-danger">Delete</button>
+        </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% }) %>
+</div>

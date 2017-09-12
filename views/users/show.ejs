@@ -1,0 +1,60 @@
+<div class="container">
+  <h3 class="title"><%= user.username %></h3>
+
+  <br>
+  <% if(locals.isAuthenticated && user.id === locals.currentUser.id) { %>
+  <% } %>
+  <br>
+  <h4 class="title">Cheeses Added</h4>
+  <div class="columns is-multiline">
+    <% user.recipes.forEach(recipe => { %>
+      <div class="column is-one-quarter-desktop is-half-tablet">
+        <a href="/recipes/<%= recipe.id %>">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image">
+                <img src="<%= recipe.image %>" alt="<%= recipe.name %>">
+              </figure>
+            </div>
+            <div class="card-content">
+              <h3 class="title"><%= recipe.name %></h3>
+
+            </div>
+          </div>
+        </a>
+      </div>
+    <% }) %>
+  </div>
+  <br>
+  <h4 class="title">Favorites</h4>
+  <div class="columns is-multiline">
+    <% user.favorites.forEach(recipe => { %>
+      <div class="column is-one-quarter-desktop is-half-tablet">
+        <% if(locals.isAuthenticated) { %>
+          <form method="POST" action="/recipes/<%= recipe.id %>/favorite" class="favorite">
+            <button>
+              <% if(locals.currentUser.hasFavorited(recipe)) { %>
+                <i class="fa fa-heart"></i>
+              <% } else { %>
+                <i class="fa fa-heart-o"></i>
+              <% } %>
+            </button>
+          </form>
+        <% } %>
+        <a href="/recipes/<%= recipe.id %>">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image">
+                <img src="<%= recipe.image %>" alt="<%= recipe.name %>">
+              </figure>
+            </div>
+            <div class="card-content">
+              <h3 class="title"><%= recipe.name %></h3>
+
+            </div>
+          </div>
+        </a>
+      </div>
+    <% }) %>
+  </div>
+</div>

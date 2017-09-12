@@ -1,0 +1,43 @@
+<div class="container">
+  <form method="POST" action="/recipes/<%= recipe.id %>">
+    <input type="hidden" name="_method" value="PUT">
+    <div class="field">
+      <label class="label">Name</label>
+      <div class="control">
+        <input class="input" name="name" type="text" placeholder="Name" value="<%= recipe.name %>">
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Description</label>
+      <div class="control">
+        <input class="input" name="description" type="text" placeholder="Country of Origin" value="<%= recipe.description %>">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Ingredients
+      </label>
+      <div class="field ingredients">
+
+        <select class="input is-primary" name="ingredients[][name]" multiple="multiple" value="<%= recipe.ingredient %>" required>
+<% ingredients.forEach(ingredient => { %>
+            <option><%= ingredient %></option>
+          <% }); %>
+
+        </select>
+
+      </div>
+
+    </div>
+
+    <div class="field">
+      <label class="label">Image</label>
+      <div class="control">
+        <input class="input" name="image" type="text" placeholder="Image" value="<%= recipe.image %>">
+      </div>
+    </div>
+    <div class="control">
+      <button class="button is-primary">Submit</button>
+    </div>
+  </form>
+</div>

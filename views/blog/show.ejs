@@ -1,0 +1,19 @@
+<div class="tile">
+  <div class="tile is-parent">
+    <article class="tile is-child notification ">
+      <p class="title"><%= post.title %></p>
+      <div class="img-container">
+        <img class="recipe-img" src="<%= post.image %>">
+      </div>
+      <p><strong class="ing"><%= post.subtitle %></strong></p>
+
+      <div class="content">
+    <p class="subtitle"><%= post.content %></p>
+      </div>
+
+
+
+    <%- include ../partials/_blog-com %>
+    </article>
+  </div>
+</div>
