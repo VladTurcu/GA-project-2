@@ -1,1 +1,20 @@
 
+<% if(locals.isAuthenticated) { %>
+Hahahahaha
+<% } else { %>
+<div class="container-home">
+<center><%- include ./partials/_logo %></center>
+
+<div class="form-login">
+<%- include ./sessions/_new %>
+
+
+</div>
+
+<div class="form-register">
+<%- include ./registrations/_new %>
+</div>
+
+
+</div>
+<% } %>

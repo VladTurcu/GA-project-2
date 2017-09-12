@@ -1,85 +1,179 @@
+//IMPORTING BULMA SASS
+@import "bulma/sass/utilities/initial-variables";
+$primary: $green;
+$danger: #f9628b;
+$family-serif: 'Playfair Display', serif;
+$family-primary: $family-serif;
+
+@import "bulma/bulma";
+@import 'colors';
+@import 'nav';
+
+
+
 body{
-font-family: 'Titillium Web', sans-serif;
-}
-
-main{
-padding: 10px;
-}
-
-
-.main-menu{
-border-bottom:1px solid #00d1b2;
-}
-.content{
-max-width: 100%;
-margin: 10px auto;
-border-right:1px solid lightGrey;
-border-left:1px solid lightGrey;
-padding: 20px;
-}
-.recipeInd{
-background-image: url('https://ak2.picdn.net/shutterstock/videos/11430092/thumb/5.jpg');
-background-size: cover;
-height:300px;
-padding-top: 150px;
+  font-family: 'Titillium Web', sans-serif;
+  background-image: url('http://cafeudupiruchi.com/wp-content/uploads/2016/03/menu-bg.jpg');
+  background-size: cover;
+  background-repeat: repeat;
+  background-attachment: fixed;
 
 }
 
-.recipeHeading{
-font-family: 'Satisfy', cursive;
-margin: 10px auto;
-color: #fff;
-font-size: 50px;
-text-align: center;
+
+////Home //////////
+.container-home {
+  height:775px;
 }
 
-.heading {
-font-style: italic;
+.container-main{
+width: 80%;
+height:100%;
+margin-top: 15px;
+background-color: #ffffff;
+padding: 15px;
+padding-bottom: 200px;
 }
 
-.searchB{
-width: 30%;
-display: flex;
-margin: 10px auto;
+
+.media-content {
+  text-align: center;
 }
 
-.columns.is-multiline {
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    margin: 10px;
-}
-.columns.is-multiline a{
+
+.card-content {
   font-family: 'Satisfy', cursive;
   font-size: 34px;
 }
-.columns.is-multiline p{
+
+
+
+.card-content p{
+  font-family: 'Titillium Web', sans-serif;
   font-weight: lighter;
   font-size: 14px;
 }
 
 
-.img-container {
-width: 100%;
-height: 500px;
-display:flex;
-// align-content: space-around;
 
+.content {
+  max-width: 100%;
+  margin: 10px auto;
+  padding: 20px;
+  display: block;
 }
+
+.img-container{
+  height: 400px;
+}
+
+.index-hero {
+  width: 100%;
+  display:flex;
+  background-size: contain;
+  background-position: center;
+}
+
+
+.hero-body{
+  height:300px;
+  padding-top: 100px;
+}
+
+.recipe-heading{
+  display:block;
+  width: 100%;
+}
+
+.recipe--title{
+  font-family: 'Satisfy', cursive;
+  font-size: 60px;
+  text-align: center;
+}
+
+.search-title{
+  font-family: 'Satisfy', cursive;
+
+  color: #ffffff;
+  font-size: 60px;
+  text-align: center;
+}
+
+
+
+.heading-recipe {
+  font-style: italic;
+  font-size: 24px;
+  line-height: 24px;
+}
+
+
+.description-body{
+  font-style: italic;
+  font-size: 18px;
+  text-align: left;
+}
+
+.preparation-body {
+  text-align: left;
+}
+
+.searchB{
+  width: 30%;
+  display: flex;
+  margin: 10px auto;
+}
+
+.ingredients-box{
+  width: 30%;
+  display: flex;
+  margin: 10px auto;
+}
+
+//SEARCH BAR RECIPE INDEX
+
+.src {
+  margin:0 10px;
+  height: 50px;
+  width: 600px;
+}
+
+.search-button {
+  height: 50px;
+  width: 50px;
+  font-size: 24px;
+}
+
+
+.select2-container .select2-selection--single {
+  height: 50px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  line-height: 48px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 48px;
+}
+
+///////////////////////////////////////////////
+
+
 .recipe-img{
-margin: 0 auto;
-height:100%;
+  margin: 0 auto;
+  height:100%;
 }
 
 
 .sub-img{
-
-max-width:100%;
+  max-width:100%;
 }
 
 .description{
-max-width: 100%;
-background-color: #F7F7F7;
-border-radius: 0 0 5px 5px;
+  max-width: 100%;
+  background-color: #F7F7F7;
+  border-radius: 0 0 5px 5px;
 
   p{
     text-align: center;
@@ -91,13 +185,16 @@ border-radius: 0 0 5px 5px;
   }
 }
 
+.colums {
+  width: 100%;
+}
+
 
 .ing-box{
-  // width: 20%;
-font-style: italic;
-font-weight: lighter;
-color: Grey;
-border-bottom: 1px solid lightGrey;
+  font-style: italic;
+  font-weight: lighter;
+  color: Grey;
+  border-bottom: 1px solid lightGrey;
 }
 
 .recipe-title{
@@ -107,7 +204,112 @@ border-bottom: 1px solid lightGrey;
 }
 
 .ing-box {
-display:flex;
-align-content: space-between;
+  display:flex;
+  align-content: space-between;
+}
 
+//comments
+.comments{
+width: 80%;
+margin: 10px auto;
+}
+
+.comment{
+  margin: 25px auto;
+  text-align: left;
+  background-color: #F7F7F7;
+}
+
+.com-button {
+  width:100%;
+  margin: 10px auto;
+}
+//FORMS //////////////
+
+.container-form{
+width: 60%;
+height:100%;
+margin-top: 15px;
+background-color: #ffffff;
+padding: 15px;
+padding-bottom: 200px;
+opacity: 0.9;
+}
+
+.forms{
+  width: 70%;
+  margin: 10px auto;
+}
+
+
+
+.form-qty{
+  width: 60%;
+  margin-left: 10px;
+}
+.form-ing{
+  width: 40%;
+
+}
+
+.ingredient{
+  display: flex;
+}
+
+.main-ing{
+
+}
+
+.addIng {
+  width: 100%;
+  margin: 10px auto;
+}
+
+///////////////registration
+.container-home{
+width: 50%;
+height:770px;
+margin: 15px auto;
+background-color: #ffffff;
+padding: 15px;
+padding-bottom: 200px;
+opacity: 0.9;
+}
+.form-register{
+  display: none;
+}
+.form-login{
+margin: 50px auto;
+}
+.register-btn {
+  max-width: 100%;
+}
+
+
+///////////logo
+
+.frst-letter{
+  font-family: 'Satisfy', cursive;
+  font-weight: bolder;
+  font-size: 100px;
+  color: $primary;
+}
+.rest-letters{
+  font-family: 'Satisfy', cursive;
+  font-weight: bolder;
+  font-size: 60px;
+}
+
+/////logo small
+
+.frst-letter-sm{
+  font-family: 'Satisfy', cursive;
+  font-weight: bolder;
+  font-size: 40px;
+  color: $primary;
+}
+.rest-letters-sm{
+  font-family: 'Satisfy', cursive;
+  font-weight: bolder;
+  font-size: 30px;
 }

@@ -1,6 +1,6 @@
 <nav class="main-menu navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="/">Began</a>
+    <a class="navbar-item" href="/"><%- include _logo-sm %></a>
 </div>
     <a class="navbar-item" href="/">Home</a>
     <a class="navbar-item" href="/recipes">Recipes</a>
@@ -14,8 +14,7 @@
 
     <div class="navbar-end">
       <% if(!locals.isAuthenticated){ %>
-    <a class="navbar-item" href="/register">Register</a>
-    <a class="navbar-item" href="/login">Login</a>
+
     <% } else { %>
     <a class="navbar-item" href="/users/<%= locals.currentUser.id %>">Hey <%= locals.currentUser.username %></a>
     <a class="navbar-item" href="/logout">Logout</a>

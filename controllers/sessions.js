@@ -2,7 +2,7 @@ const User = require('../models/user');
 
 function sessionsNew(req, res){
 
-  res.render('sessions/new');
+  res.render('./recipes');
 }
 
 function sessionsCreate(req, res){
@@ -11,11 +11,11 @@ function sessionsCreate(req, res){
     .then(user => {
       if(!user || !user.validatePassword(req.body.password)){
         req.flash('danger', 'Invalid credentials');
-        return res.redirect('/login');
+        return res.redirect('/');
       }
       //user authentification
       req.session.userId = user.id;
-      return res.redirect('/');
+      return res.redirect('/recipes');
     });
 }
 

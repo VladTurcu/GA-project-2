@@ -1,81 +1,67 @@
 
 
 
+<div class="comments">
+<form method="POST" action="/recipes/<%= recipe.id %>/comments ">
 
-  <form method="POST" action="/recipes/<%= recipe.id %>/comments ">
-    <div>
 
-      <div class="field">
-    <label class="label">Add a Comment</label>
+  <div class="field">
+    <label class="label">Rate this</label>
     <div class="control">
-      <input class="input username" type="text" name="name" placeholder="Name" >
-      <textarea class="textarea" name="text" placeholder="Textarea"></textarea>
+      <div>
+        <label>
+          1 <input type="radio" value="1" name="rating">
+        </label>
+        <label>
+          2 <input type="radio" value="2" name="rating">
+        </label>
+        <label>
+          3 <input type="radio" value="3" name="rating">
+        </label>
+        <label>
+          4 <input type="radio" value="4" name="rating">
+        </label>
+        <label>
+          5 <input type="radio" value="5" name="rating">
+        </label>
+      </div>
+
+
+
+      <textarea class="textarea" rows="2" name="text" placeholder="Add a comment" ></textarea>
+      <button class="com-button button is-primary">Submit</button>
+
     </div>
   </div>
+</form>
 
+
+
+
+
+
+
+
+<% recipe.comments.forEach(comment => { %>
+<div class="comment box">
+  <article class="media">
+    <div class="media-left">
+      <figure class="image is-64x64">
+        <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" alt="Image">
+      </figure>
     </div>
-    <div>
-      <label>Rate it</label><br>
-      <label>
-        1 <input type="radio" value="1" name="rating">
-      </label>
-      <label>
-        2 <input type="radio" value="2" name="rating">
-      </label>
-      <label>
-        3 <input type="radio" value="3" name="rating">
-      </label>
-      <label>
-        4 <input type="radio" value="4" name="rating">
-      </label>
-      <label>
-        5 <input type="radio" value="5" name="rating">
-      </label>
+    <div class="media-content">
+      <p><strong><%= comment.name %>:</strong></p>
+      <p> <%= comment.text %> - <%= comment.rating %>/5 </p>
     </div>
-    <div class="control">
-    <button class="button is-primary">Submit</button>
-  </div>
-
-  </form>
-
-
-
-
-
-
-
-
-    <% recipe.comments.forEach(comment => { %>
-
-    <div class="com box">
-      <article class="media">
-        <div class="media-left">
-          <figure class="image is-64x64">
-            <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" alt="Image">
-          </figure>
-        </div>
-        <div class="media-content">
-
-            <p><strong><%= comment.name %>:</strong></p>
-            <p> <%= comment.text %> - <%= comment.rating %>/5
-
-            </p>
-
-        </div>
-
-        <div class="media-right is-pulled-right">
-              <form action="/recipes/<%= recipe.id %>/comments/<%= comment.id %>" method="POST">
-                <input type="hidden" name="_method" value="DELETE">
-                  <button class="delete"></button>
-              </form>
-        </div>
-      </article>
-
+    <div class="media-right is-pulled-right">
+      <form action="/recipes/<%= recipe.id %>/comments/<%= comment.id %>" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <button class="delete"></button>
+      </form>
     </div>
-
-    <% }); %>
-
-
-
-</article>
+  </article>
+</div>
+<% }); %>
+</div>
 </div>
