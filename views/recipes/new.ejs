@@ -1,7 +1,5 @@
 <div class="container container-form">
   <div class="forms">
-
-
     <form method="POST" action="/recipes">
       <div class="field">
         <label class="label">Name</label>
@@ -15,59 +13,39 @@
           <input class="input" name="description" type="text" placeholder="Description"required>
         </div>
       </div>
-
-
       <label class="label">Ingredients</label>
-
       <div class="main-ing">
-        <div class="ingredient field repeater">
-
-
-          <div class="form-ing">
+        <div class="ingredient field repeater ">
+          <div class="form-ing ">
             <label>Quantity</label>
-            <input class="input is-primary" type="text" name="ingredients[qty]" value="">
+            <input class="input is-primary" type="text" name="ingredients[0][qty]">
           </div>
-
-            <div class="form-qty">
+          <div class="form-qty">
             <label>Ingredients</label>
-            <select class="input is-primary" name="ingredients[name]" required>
+            <select class="input is-primary" name="ingredients[0][name]" required>
               <% ingredients.forEach(ingredient => { %>
                 <option><%= ingredient %></option>
                 <% }); %>
               </select>
             </div>
-
           </div>
         </div>
-
         <button class="button is-primary addIng"n type="button" name="button">Add Ingredient</button>
-
-
-      <div class="field">
-        <label class="label">Image</label>
-        <div class="control">
-          <input class="input" name="image" type="text" placeholder="Image"required>
+        <div class="field">
+          <label class="label">Image</label>
+          <div class="control">
+            <input class="input" name="image" type="text" placeholder="Image"required>
+          </div>
         </div>
-      </div>
-
-
-
-
-
-      <div class="field">
-        <label class="label">Preparation</label>
-        <div class="control">
-          <textarea class="repeate textarea" name="preparation" rows="2" placeholder="Preparation"></textarea>
-
+        <div class="field">
+          <label class="label">Preparation</label>
+          <div class="control">
+            <textarea class="repeate textarea" name="preparation" rows="2" placeholder="Preparation"></textarea>
+          </div>
         </div>
-        <button class="addStep">Add step</button>
-      </div>
-
-      <div class="control">
-        <button class="button is-primary">Submit</button>
-      </div>
-
-
-    </form>
+        <div class="control">
+          <button class="button is-primary">Submit</button>
+        </div>
+      </form>
+    </div>
   </div>
-</div>

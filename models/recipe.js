@@ -12,7 +12,6 @@ const ingredientsSchema = new mongoose.Schema({
   qty: String
 });
 
-
 const recipeSchema = new mongoose.Schema({
   name: String,
   description: String,
@@ -21,6 +20,8 @@ const recipeSchema = new mongoose.Schema({
   ingredients: [ingredientsSchema],
   user: {type: mongoose.Schema.ObjectId, ref: 'User'},
   comments: [commentSchema]
+  // rating: ratingSchema
+
 });
 
 module.exports = mongoose.model('Recipe', recipeSchema);

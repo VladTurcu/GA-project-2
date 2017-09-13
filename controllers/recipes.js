@@ -33,23 +33,10 @@ function recipesNew(req, res) {
     });
 }
 
-function recipesFind(req, res) {
-  Recipe
-    .find(req.body)
-    .populate('user')
-    .exec()
-    .then(recipes => {
-      const ingredients = getIngredientsFromRecipes(recipes);
-      res.render('recipes/find', { ingredients});
-      res.render('recipes/find', { recipes});
-    });
-}
-
-
 function recipesShow(req, res) {
   Recipe
     .findById(req.params.id)
-    .populate('user')
+    .populate('user favorites')
     .exec()
     .then(recipe => res.render('recipes/show', { recipe }))
     .catch(err => res.render('error', { err }));
@@ -63,7 +50,6 @@ function recipesCreate(req, res) {
     .catch(err => res.render('error', { err }));
 }
 
-
 function recipesEdit(req, res) {
   Recipe
     .find()
@@ -75,8 +61,6 @@ function recipesEdit(req, res) {
     })
     .catch(err => res.render('error', { err }));
 }
-
-
 
 function recipesUpdate(req, res) {
   Recipe
@@ -99,7 +83,6 @@ function recipesDelete(req, res) {
     .catch(err => res.render('error', { err }));
 }
 
-
 // This requires the user's favorites to be populated (see `lib/userAuth.js`)
 function recipesFavorite(req, res) {
   // if the selected recipe is not in the user's favorites
@@ -113,40 +96,9 @@ function recipesFavorite(req, res) {
 
   // save the user
   req.currentUser.save()
-    .then(() => res.redirect('back'));
+    .then(() => res.redirect('/recipes/:id'))
+    .catch(err => res.render('error', { err }));
 }
-
-
-
-// function addCom(req, res){
-//   Recipe
-//     .findById(req.params.id)
-//     .exec()
-//     .then(recipe => {
-//       recipe.comments.push(req.body);
-//       return recipe.save();
-//     })
-//     .then(recipe => res.redirect(`/recipes/${recipe.id}`))
-//     .catch(err => res.render('error', {err}));
-// }
-//
-//
-//
-// function removeCom(req, res){
-//   Recipe
-//     .findById(req.params.id)
-//     .exec()
-//     .then( recipe => {
-//       const comment = recipe.comments.id(req.params.commentId);
-//       comment.remove();
-//       return recipe.save();
-//     })
-//     .then(recipe => res.redirect(`/recipes/${recipe.id}`))
-//     .catch(err => res.render('error', {err}));
-// }
-
-
-
 
 module.exports = {
   index: recipesIndex,
@@ -156,6 +108,5 @@ module.exports = {
   edit: recipesEdit,
   delete: recipesDelete,
   update: recipesUpdate,
-  find: recipesFind,
   favorite: recipesFavorite
 };

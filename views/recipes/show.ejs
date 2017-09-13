@@ -1,12 +1,7 @@
 
 <div class="container container-main">
-  <div class="recipe--title" ><p><%= recipe.name %></p></div>
-    <section class="img-container index-hero hero is-medium is-primary is-bold " style="background-image: url('<%= recipe.image %>'); background-size: cover">
-      <% if(locals.isAuthenticated) { %>
-      <form method="POST" action="/recipes/<%= recipe.id %>/favorite" >
-      <button><span class="icon is-small"><i class="fa fa-heart"></i></span></button>
-      </form>
-      <% } %>
+  <div class="recipe-title" ><p><%= recipe.name %></p></div>
+    <section class="img-container index-hero hero is-medium is-primary is-bold" style="background-image: url('<%= recipe.image %>')">
     </section>
     <div class="description">
       <nav class="level is-mobile">
@@ -17,21 +12,25 @@
           </div>
         </div>
         <div class="level-item has-text-centered">
-          <div>
-            <p class="heading">Average rating</p>
-            <p class="title is-5">8</p>
-          </div>
-        </div>
-        <div class="level-item has-text-centered">
-          <div>
-            <p class="heading">Favorite</p>
-            <p class="title is-5">8</p>
-          </div>
+
+            <% if(locals.isAuthenticated && recipe.user && recipe.user.id === locals.currentUser.id){ %>
+              <span>Hey <%= locals.currentUser.firstname  %></span><img class="user-pic" src="<%= locals.currentUser.image %>"><span class="mome-msg">Your are the author of this post</span>
+              <% if(locals.isAuthenticated && recipe.user && recipe.user.id === locals.currentUser.id){ %>
+                <form class="show-controlers" method="POST" action="/recipes/<%= recipe.id %>">
+                  <input type="hidden" name="_method" value="DELETE">
+
+                  <a class="ing button is-primary" href="/recipes/<%= recipe.id %>/edit">Edit</a>
+                  <button class="ing button is-danger">Delete</button>
+                </form>
+              <% } %>
+          <% } else { %>
+          <%- include ../partials/_share %>
+          <% }  %>
         </div>
       </nav>
     </div>
-    <div class="content">
 
+    <div class="content">
       <div class="columns">
         <div class="column is-one-third">
           <% recipe.ingredients.forEach(ingredient => { %>
@@ -57,16 +56,7 @@
         </div>
       </div>
 
-
-
       <div>
-        <% if(locals.isAuthenticated && recipe.user && recipe.user.id === locals.currentUser.id){ %>
-          <form method="POST" action="/recipes/<%= recipe.id %>">
-            <input type="hidden" name="_method" value="DELETE">
-            <a class="ing" href="/recipes/<%= recipe.id %>/edit">Edit</a>
-            <button class="delete ing"></button>
-          </form>
-        <% } %>
         <%- include ../partials/_recipe-com %>
       </div>
     </div>

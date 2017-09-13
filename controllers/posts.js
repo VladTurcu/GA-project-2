@@ -1,7 +1,5 @@
 const Post = require('../models/posts');
 
-
-
 function postsIndex(req, res) {
   Post
     .find()
@@ -13,7 +11,6 @@ function postsIndex(req, res) {
 function postsNew(req, res) {
   res.render('blog/new');
 }
-
 
 function postsShow(req, res) {
   Post
@@ -31,7 +28,6 @@ function postsCreate(req, res) {
     .catch(err => res.render('error', { err }));
 }
 
-
 function postsEdit(req, res) {
   Post
     .findById(req.params.id)
@@ -39,7 +35,6 @@ function postsEdit(req, res) {
     .then(post => res.render('blog/edit', { post }))
     .catch(err => res.render('error', { err }));
 }
-
 
 function postsUpdate(req, res) {
   Post
@@ -62,7 +57,6 @@ function postsDelete(req, res) {
     .catch(err => res.render('error', { err }));
 }
 
-
 module.exports = {
   index: postsIndex,
   show: postsShow,
@@ -71,5 +65,4 @@ module.exports = {
   edit: postsEdit,
   delete: postsDelete,
   update: postsUpdate
-
 };

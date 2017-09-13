@@ -1,27 +1,21 @@
-<div class="columns is-multiline">
-<% posts.forEach(post => { %>
-<div class="column is-one-quarter-desktop is-half-tablet">
-<div class="card">
-    <div class="card-image">
-      <figure class="image is-4by3">
-      <a href="/blog/<%= post.id %>"><img src="<%= post.image %>"></a>
-      </figure>
-    </div>
-    <div class="card-content">
-      <div class="media">
-        <div class="media-content">
-          <p class="title is-5"><a href="/blog/<%= post.id %>"><%= post.title %></a></p>
+<div class="container container-main">
+  <% posts.forEach(post => { %>
+    <article class="index-post-container">
+      <a href="/blog/<%= post.id %>">
+       <div class="image post-preview" style="background-image: url('<%- post.image %>')"></div>
+      </a>
+      <div class="media-content">
 
-          <form method="POST" action="/blog/<%= post.id %>">
-          <input type="hidden" name="_method" value="DELETE">
-          <a class="button is-primary" href="/blog/<%= post.id %>/edit">Edit</a>
-          <button class="button is-danger">Delete</button>
-        </form>
-
+        <div class="content">
+          <p class="title is-3"><a href="/blog/<%= post.id %>"><%= post.title %></a></p>
+          <p class=""><%= post.subtitle %></p>
+          <div class="level-left read-more">
+            <a href="/blog/<%= post.id %>" class="level-item">
+              <span>Read more...</span>
+             </a>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-<% }) %>
+    </article>
+  <% }) %>
 </div>

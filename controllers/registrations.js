@@ -11,9 +11,7 @@ function registrationsCreate(req, res){
     .catch(err => res.render('error', { err }));
 }
 
-
 module.exports = {
-
   create: registrationsCreate,
   new: registrationsNew
 };

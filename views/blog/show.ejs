@@ -1,19 +1,39 @@
-<div class="tile">
-  <div class="tile is-parent">
-    <article class="tile is-child notification ">
-      <p class="title"><%= post.title %></p>
-      <div class="img-container">
-        <img class="recipe-img" src="<%= post.image %>">
-      </div>
-      <p><strong class="ing"><%= post.subtitle %></strong></p>
+<div class="container container-main">
+  <div class="recipe--title" ><p><%= post.title %></p></div>
+    <section class="img-container index-hero hero is-medium is-primary is-bold " style="background-image: url('<%= post.image %>'); background-size: cover">
+    </section>
+    <div class="description">
+      <nav class="level is-mobile">
+        <div class="level-item has-text-centered  ">
+          <div>
+            <p class="heading">Comments</p>
+            <p class="title is-5"><%= post.comments.length %></p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
 
-      <div class="content">
-    <p class="subtitle"><%= post.content %></p>
-      </div>
+            <% if(locals.isAuthenticated && post.user && post.user.id === locals.currentUser.id){ %>
+              <span>Hey <%= locals.currentUser.firstname  %></span><img class="user-pic" src="<%= locals.currentUser.image %>"><span class="mome-msg">Your are the author of this post</span>
+              <% if(locals.isAuthenticated && post.user && post.user.id === locals.currentUser.id){ %>
+                <form class="show-controlers" method="POST" action="/recipes/<%= recipe.id %>">
+                  <input type="hidden" name="_method" value="DELETE">
 
-
-
+                  <a class="ing button is-primary" href="/recipes/<%= recipe.id %>/edit">Edit</a>
+                  <button class="ing button is-danger">Delete</button>
+                </form>
+              <% } %>
+          <% } else { %>
+          <%- include ../partials/_share %>
+          <% }  %>
+        </div>
+      </nav>
+    </div>
+  <div class="content">
+    <div class="blog-content">
+      <p class="is-pulled-left preparation-body"><%= post.content %></p>
+    </div>
+  </div>
+  <div>
     <%- include ../partials/_blog-com %>
-    </article>
   </div>
 </div>

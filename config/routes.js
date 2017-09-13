@@ -10,6 +10,7 @@ const Post = require('../models/posts');
 
 router.get('/', (req, res) => res.render('home', { isHomepage: true }));
 router.get('/user', (req, res) => res.render('user'));
+router.get('/about', (req, res) => res.render('about'));
 
 router.route('/recipes')
   .get(recipes.index)
@@ -17,9 +18,6 @@ router.route('/recipes')
 
 router.route('/recipes/new')
   .get(secureRoute, recipes.new);
-
-router.route('/recipes/find')
-  .get(secureRoute, recipes.find);
 
 router.route('/recipes/:id')
   .get(recipes.show)
@@ -63,16 +61,6 @@ router.route('/login')
   .get(sessions.new)
   .post(sessions.create);
 
-
-///// comments
-
-//
-// router.route('/paintings/:id/comments')
-//   .post(recipes.addCom);
-//
-// router.route('/paintings/:id/comments/:commentId')
-//   .delete(recipes.removeCom);
-
 router.post('/recipes/:id/comments', (req, res) => {
   Recipe
     .findById(req.params.id)
@@ -84,8 +72,6 @@ router.post('/recipes/:id/comments', (req, res) => {
     .then(recipe => res.redirect(`/recipes/${recipe.id}`))
     .catch(err => res.render('error', {err}));
 });
-
-
 
 router.delete('/recipes/:id/comments/:commentId', (req, res) => {
   Recipe
@@ -125,16 +111,11 @@ router.delete('/blog/:id/comments/:commentId', (req, res) => {
     .catch(err => res.render('error', {err}));
 });
 
-
-
-
 router.route('/users/:id')
   .get(users.show);
 
-
-
-
-
 router.get('/logout', sessions.delete);
+
+router.get('/checkemail', users.checkEmail);
 
 module.exports = router;

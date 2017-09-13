@@ -1,15 +1,12 @@
 //IMPORTING BULMA SASS
 @import "bulma/sass/utilities/initial-variables";
+@import "share";
 $primary: $green;
 $danger: #f9628b;
-$family-serif: 'Playfair Display', serif;
-$family-primary: $family-serif;
 
 @import "bulma/bulma";
 @import 'colors';
 @import 'nav';
-
-
 
 body{
   font-family: 'Titillium Web', sans-serif;
@@ -17,10 +14,11 @@ body{
   background-size: cover;
   background-repeat: repeat;
   background-attachment: fixed;
-
 }
 
-
+body, button, input {
+  font-family: 'Titillium Web', sans-serif;
+}
 ////Home //////////
 .container-home {
   height:775px;
@@ -35,45 +33,38 @@ padding: 15px;
 padding-bottom: 200px;
 }
 
-
 .media-content {
   text-align: center;
 }
 
-
 .card-content {
   font-family: 'Satisfy', cursive;
   font-size: 34px;
+  p{
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: lighter;
+    font-size: 14px;
+  }
 }
-
-
-
-.card-content p{
-  font-family: 'Titillium Web', sans-serif;
-  font-weight: lighter;
-  font-size: 14px;
-}
-
-
 
 .content {
   max-width: 100%;
   margin: 10px auto;
   padding: 20px;
   display: block;
+
 }
 
 .img-container{
   height: 400px;
+  background-size: cover;
+  background-position: center;
 }
 
 .index-hero {
   width: 100%;
   display:flex;
-  background-size: contain;
-  background-position: center;
 }
-
 
 .hero-body{
   height:300px;
@@ -93,20 +84,10 @@ padding-bottom: 200px;
 
 .search-title{
   font-family: 'Satisfy', cursive;
-
   color: #ffffff;
   font-size: 60px;
   text-align: center;
 }
-
-
-
-.heading-recipe {
-  font-style: italic;
-  font-size: 24px;
-  line-height: 24px;
-}
-
 
 .description-body{
   font-style: italic;
@@ -130,8 +111,9 @@ padding-bottom: 200px;
   margin: 10px auto;
 }
 
-//SEARCH BAR RECIPE INDEX
 
+
+//SEARCH BAR RECIPE INDEX
 .src {
   margin:0 10px;
   height: 50px;
@@ -142,8 +124,8 @@ padding-bottom: 200px;
   height: 50px;
   width: 50px;
   font-size: 24px;
+  margin-left: 10px;
 }
-
 
 .select2-container .select2-selection--single {
   height: 50px;
@@ -157,24 +139,11 @@ padding-bottom: 200px;
   height: 48px;
 }
 
-///////////////////////////////////////////////
-
-
-.recipe-img{
-  margin: 0 auto;
-  height:100%;
-}
-
-
-.sub-img{
-  max-width:100%;
-}
 
 .description{
   max-width: 100%;
   background-color: #F7F7F7;
   border-radius: 0 0 5px 5px;
-
   p{
     text-align: center;
     max-width: 70%;
@@ -185,16 +154,13 @@ padding-bottom: 200px;
   }
 }
 
-.colums {
-  width: 100%;
-}
-
-
 .ing-box{
   font-style: italic;
   font-weight: lighter;
   color: Grey;
   border-bottom: 1px solid lightGrey;
+  display:flex;
+  align-content: space-between;
 }
 
 .recipe-title{
@@ -203,10 +169,6 @@ padding-bottom: 200px;
   text-align: center;
 }
 
-.ing-box {
-  display:flex;
-  align-content: space-between;
-}
 
 //comments
 .comments{
@@ -233,38 +195,34 @@ margin-top: 15px;
 background-color: #ffffff;
 padding: 15px;
 padding-bottom: 200px;
-opacity: 0.9;
+
 }
 
 .forms{
   width: 70%;
   margin: 10px auto;
 }
-
-
-
-.form-qty{
-  width: 60%;
-  margin-left: 10px;
-}
-.form-ing{
-  width: 40%;
+.main-ing {
+  width: 100%;
 
 }
-
 .ingredient{
   display: flex;
+  flex-direction: row;
+}
+.form-qty{
+  width: 40%;
+  margin-left: 10px;
 }
 
-.main-ing{
-
+.form-ing{
+  width: 40%;
+  margin-left: 10px;
 }
-
 .addIng {
   width: 100%;
   margin: 10px auto;
 }
-
 ///////////////registration
 .container-home{
 width: 50%;
@@ -275,6 +233,7 @@ padding: 15px;
 padding-bottom: 200px;
 opacity: 0.9;
 }
+
 .form-register{
   display: none;
 }
@@ -284,8 +243,6 @@ margin: 50px auto;
 .register-btn {
   max-width: 100%;
 }
-
-
 ///////////logo
 
 .frst-letter{
@@ -301,7 +258,6 @@ margin: 50px auto;
 }
 
 /////logo small
-
 .frst-letter-sm{
   font-family: 'Satisfy', cursive;
   font-weight: bolder;
@@ -312,4 +268,45 @@ margin: 50px auto;
   font-family: 'Satisfy', cursive;
   font-weight: bolder;
   font-size: 30px;
+}
+
+//////////blog content
+
+.blog-content {
+  width: 90%;
+  margin: 10px auto;
+}
+
+.index-post-container {
+  max-width: 90%;
+  margin: 15px auto;
+  background-color: #ffffff;
+  text-align: left;
+}
+
+.post-preview {
+  margin: 0 auto;
+  max-width: 100%;
+  height: 350px;
+  background-size: cover;
+}
+
+.home-msg {
+  margin:auto 10px;
+}
+
+.show-controlers{
+  margin-left: 10px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .search-title {
+        font-size: 44px;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .search-title {
+        font-size: 34px;
+    }
 }
