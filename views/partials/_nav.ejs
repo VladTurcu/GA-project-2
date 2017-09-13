@@ -20,12 +20,12 @@
     <div class="navbar-menu">
         <% if(!locals.isAuthenticated){ %>
           <a class="navbar-item" href="/recipes">Recipes</a>
-          <a class="navbar-item" href="/blog">Blog</a>
+
           <a class="navbar-item" href="/about">About</a>
         <% } else { %>
           <a class="navbar-item" href="/recipes/new">New recipe</a>
           <a class="navbar-item" href="/recipes">Recipes</a>
-          <a class="navbar-item" href="/blog">Blog</a>
+
           <a class="navbar-item" href="/about">About</a>
         <% }  %>
 
