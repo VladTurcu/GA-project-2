@@ -298,11 +298,20 @@ margin: 50px auto;
 .show-controlers{
   margin-left: 10px;
 }
+@media only screen and (max-width: 800px) {
 
+    .container-home{
+      width: 85%;
+    }
+}
 
 @media only screen and (max-width: 600px) {
     .search-title {
         font-size: 44px;
+    }
+    .container-home{
+
+    max-width: 95%;
     }
 }
 @media only screen and (max-width: 400px) {

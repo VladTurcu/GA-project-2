@@ -28,8 +28,6 @@ router.route('/recipes/:id')
 router.route('/recipes/:id/edit')
   .get(secureRoute, recipes.edit);
 
-router.route('/cheeses/:id/favorite')
-  .post(secureRoute, recipes.favorite);
 
 /////////////////////////////////////////////////////////////////////////////////
 ///blog posts routes
@@ -115,7 +113,6 @@ router.route('/users/:id')
   .get(users.show);
 
 router.get('/logout', sessions.delete);
-
 router.get('/checkemail', users.checkEmail);
 
 module.exports = router;

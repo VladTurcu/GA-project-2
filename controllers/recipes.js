@@ -83,22 +83,7 @@ function recipesDelete(req, res) {
     .catch(err => res.render('error', { err }));
 }
 
-// This requires the user's favorites to be populated (see `lib/userAuth.js`)
-function recipesFavorite(req, res) {
-  // if the selected recipe is not in the user's favorites
-  if(!req.currentUser.favorites.find(recipe => recipe.id === req.params.id)) {
-    // add the recipe id to the user's favorites
-    req.currentUser.favorites.push(req.params.id);
-  } else {
-    // remove the recipe from the user's favorites
-    req.currentUser.favorites = req.currentUser.favorites.filter(recipe => recipe.id !== req.params.id);
-  }
 
-  // save the user
-  req.currentUser.save()
-    .then(() => res.redirect('/recipes/:id'))
-    .catch(err => res.render('error', { err }));
-}
 
 module.exports = {
   index: recipesIndex,
@@ -107,6 +92,6 @@ module.exports = {
   show: recipesShow,
   edit: recipesEdit,
   delete: recipesDelete,
-  update: recipesUpdate,
-  favorite: recipesFavorite
+  update: recipesUpdate
+
 };

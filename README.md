@@ -1,7 +1,7 @@
 #B-gan: A WDI 2nd GA project
 
 
-![CheeseBored](https://user-images.githubusercontent.com/3531085/30239331-30757e7e-9552-11e7-9bf6-2ffe35f32200.png)
+![B-gan](/Users/vladturcu/development/project-2/src/images/1.png)
 
 ## Setup
 
