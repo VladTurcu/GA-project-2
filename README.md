@@ -22,6 +22,8 @@ If you do not have them, I would advise installing them with [homebrew](https://
 - Mongo
 - Express
 - NodeJS
+- [Bulma](http://bulma.io/)
+
 ## Features
 
 - Authentication with BCrypt
@@ -31,8 +33,3 @@ If you do not have them, I would advise installing them with [homebrew](https://
 - Users can only modify data they have added themselves
 - User information shown if logged in
 - Frontend form validation with HTML5 and [jQuery Validate Plugin](https://jqueryvalidation.org/)
-
-## Notes
-- Create an account
-- Add new recipes and blog posts
-- Styled with [Bulma](http://bulma.io/)

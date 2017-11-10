@@ -8,7 +8,6 @@ $(() => {
   const $menuBtn = $('.menu');
   const $navMenu = $('.navbar-menu');
 
-
   $('form#register').validate({
     rules: {
       email: { required: true, email: true, remote: '/checkemail' }
@@ -26,6 +25,7 @@ $(() => {
   function addIngredient(){
     $('.ingredients select').select2('destroy');
     const $newIngredient = $repeater.clone();
+
     $repeater.parent().append($newIngredient);
     const index = $newIngredient.index();
     $newIngredient.find('input, select').each((i, input) => {
@@ -46,10 +46,7 @@ $(() => {
     $reg.delay(500).slideDown(500);
   }
 
-
   $addBtn.on('click', addIngredient);
   $homeBtn.on('click', regShow);
   $menuBtn.on('click', burgerBtn);
-
-
 });

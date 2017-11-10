@@ -20,12 +20,12 @@
 
           <div class="form-ing">
           <label>Quantity</label>
-          <input class="input is-primary" type="text" name="ingredients[][qty]" value="<%= ingredient.qty %>">
+          <input class="input is-primary" type="text" name="ingredients[0][qty]" value="<%= ingredient.qty %>">
           </div>
 
           <div class="form-qty">
           <label>Ingredients</label>
-          <select class="input is-primary " name="ingredients[][name]" value="<%= ingredient.name %>" required>
+          <select class="input is-primary " name="ingredients[0][name]" value="<%= ingredient.name %>" required>
           <% ingredients.forEach(ingredient => { %>
             <option><%= ingredient %></option>
             <% }); %>
